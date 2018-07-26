@@ -1,6 +1,6 @@
 # Author: Elliott Vanderford
-# Runs Charmm-GUI from an automated script. v4 includes separate config file
-# Software requirements: Google Chrome
+# Runs Charmm-GUI from an automated script
+# Software requirements: Google Chrome (v 63 or above), chromedriver, python (2.7+ or 3.6+), selenium
 # Future updates: Make operational on cluster, make headless mode operational, implement explicit wait for solvation step.
 
 import os
@@ -178,40 +178,6 @@ def next5():
     time.sleep(600)
     next5 = driver.find_element_by_class_name('nav_entry')
     next5.click()
-
-    #try:
-    #    myElem5 = WebDriverWait(driver, 1500).until(EC.element_to_be_clickable((By.CSS_SELECTOR, \
-    #    '#fmdsetup > table > tbody > tr:nth-child(2) > td > input[type="radio"]')))
-    #    next5 = driver.find_element_by_class_name('nav_entry')
-    #    next5.click()
-    #except TimeoutException:
-    #    print("Timed out waiting for page to load (next5)")
-
-    #try:
-    #    if counter == 5:
-    #        time.sleep(100)
-    #        #WebDriverWait(driver, 600).until(EC.url_contains(("http://charmm-gui.org/?doc=input/solvator&step=2")))
-    #    myElem5 = WebDriverWait(driver, 600).until(EC.element_to_be_clickable((By.CSS_SELECTOR, \
-    #    '#fmdsetup > table > tbody > tr:nth-child(2) > td > input[type="radio"]')))
-    #    next5 = driver.find_element_by_class_name('nav_entry')
-    #    next5.click()
-    #    counter +=1
-    #except TimeoutException:
-    #    print("Timed out waiting for page to load (next5)")
-
-    #try:
-    #    myElem5_b = WebDriverWait(driver, 600).until(EC.visibility_of((By.CSS_SELECTOR, \
-    #        '#fmdsetup > table > tbody > tr:nth-child(2) > td > input[type="radio"]')))
-    #except TimeoutException:
-    #        print("Timed out waiting for page to load (next5_b)")
-
-    #try:
-    #    myElem5_b = WebDriverWait(driver, 600).until(EC.element_to_be_clickable((By.CSS_SELECTOR, \
-    #        '#fmdsetup > table > tbody > tr:nth-child(2) > td > input[type="radio"]')))
-    #    next5 = driver.find_element_by_class_name('nav_entry')
-    #    next5.click()
-    #except TimeoutException:
-    #    print("Timed out waiting for page to load (next5_c)")
 
 
 # Forcefield and input generation options
