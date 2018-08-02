@@ -4,6 +4,7 @@ import fileinput
 import shutil
 import yaml
 import re
+import os
 
 # Find and replace with regular expressions
 def find_replace(filename, s, g):
@@ -15,6 +16,38 @@ def find_replace(filename, s, g):
 # Load yaml config file
 with open('md_pipeline.yaml', 'r') as yaml_file:
     dict = yaml.load(yaml_file)
+
+# Creates disulfide bonds in pdb and psf if specified
+disulfide_bonds = dict.get('disulfide_bonds')
+if disulfide_bonds == True:
+    tcl_file = open("disulfide.tcl", "w")
+    tcl_file.write("package require psfgen\nresetpsf\nreadpsf cg_input.psf pdb cg_input.pdb \
+    \nmol new cg_input.psf\nmol addfile cg_input.pdb\ntopology top_all36_prot.rtf\n")
+
+    l = dict['disulfide_bond_list']
+
+    if len(l) > 0:
+        l_length = len(l)
+        for x in range(0, l_length):
+            innerlist = l[x]
+            i_l = innerlist.split(' ')
+            a = i_l[0]
+            b = i_l[1]
+            c = i_l[2]
+            d = i_l[3]
+            tcl_file = open("disulfide.tcl", "a")
+            tcl_file.write("patch DISU %s:%s %s:%s\n" % (a, b, c, d))
+            tcl_file.close()
+    else:
+        pass
+
+    tcl_file = open("disulfide.tcl", "a")
+    tcl_file.write("writepsf cg_input.psf\nwritepdb cg_input.pdb\nexit")
+    tcl_file.close()
+
+    os.system('vmd -dispdev text -e disulfide.tcl')
+else:
+    pass
 
 # Replace acemd_equil.inp presets with custom values from md_pipeline.yaml config file
 if 'output' in dict:
@@ -174,5 +207,5 @@ shutil.move("toppar_water_ions_namd.str", work_dir)
 shutil.move("par_all36_prot.prm", work_dir)
 shutil.move("acemd_equil.inp", work_dir)
 shutil.move("acemd_prod.inp", work_dir)
-shutil.move("cg_input.psf", work_dir)
-shutil.move("cg_input.pdb", work_dir)
+shutil.copy("cg_input.psf", work_dir)
+shutil.copy("cg_input.pdb", work_dir)

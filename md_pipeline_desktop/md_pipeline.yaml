@@ -58,6 +58,21 @@ dynamics_ensemble: NPT
 # Choose temperature to use for molecular dynamics production run (Kelvin, float)
 dynamics_temperature: 310
 
+# Add disulfide bonds to struture (on/off)?
+disulfide_bonds: off
+
+# If you want disulfide bonds, enter the next option EXACTLY as follows:
+#
+# disulfide_bond_list:
+#     - CHAIN_A RES_A CHAIN_B RES_B
+#     - CHAIN_C RES_C CHAIN_D RES_D
+#     - etc...
+#
+# where CHAIN_A = the chain ID of the first chain involved, RES_A = the residue ID of the first residue involved, etc.
+
+disulfide_bond_list:
+    - PROA 2 PROA 45
+
 ###############
 #ACEMD OPTIONS#
 ###############

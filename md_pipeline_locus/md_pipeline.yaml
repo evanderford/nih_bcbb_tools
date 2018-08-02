@@ -1,0 +1,110 @@
+# Configuration file for MD Pipeline
+
+###############################
+# PROTEIN PREPARATION OPTIONS #
+###############################
+
+# Use own PDB structure? Options: on (use local pdb structure), off (use from RCSB)
+use_own_pdb: off
+
+# Path to local PDB structure (if use_own_pdb: off)
+path_to_pdb_file: /path/to/file/
+
+# PDBID (if use_own_pdb: on)
+pdbid: 2m4j
+
+# Auto-fit waterbox? Options: on (charmm-gui auto-determines box size), off (set size manually)
+fit_waterbox_2_protein: on
+
+# Select waterbox shape; Options: rectangular, octahedral
+waterbox_type: rectangular
+
+# Distance (Angstroms) from protein to waterbox edge (if fit_waterbox_2_protein: on) (float)
+edge_distance: 10
+
+# Waterbox dimensions (Angstroms) for X, Y, Z (if fit_waterbox_2_protein: off) (float)
+solvent_box_x: 20
+solvent_box_y: 20
+solvent_box_z: 20
+
+# Add ions to system? (on/off)
+ions: on
+
+# Set system to neutral charge? (on/off)
+neutral_solvent: on
+
+# Set ion concentration (units: molar concentration) (if neutral_solvent: off) (float)
+ion_concentration: 0.1
+
+# Set ion type; Options: KCl, NaCl, CaCl2, MgCl2
+ion_type: NaCl
+
+# Set force field type; Options: CHARMM36 or CHARMM36m
+force_field: CHARMM36
+
+# Choose input types to be generated (on/off)
+NAMD_inputs: on
+GROMACS_inputs: off
+AMBER_inputs: off
+OpenMM_inputs: off
+CHARMM_OpenMM_inputs: off
+GENESIS_inputs: off
+Desmond_inputs: off
+LAMMPS_inputs: off
+
+# Choose molecular dynamics ensemble to use for production run (NVT/NPT)
+dynamics_ensemble: NPT
+
+# Choose temperature to use for molecular dynamics production run (Kelvin, float)
+dynamics_temperature: 310
+
+# Add disulfide bonds to struture (on/off)?
+disulfide_bonds: off
+
+# If you want disulfide bonds, enter the next option EXACTLY as follows:
+#
+# disulfide_bond_list:
+#     - CHAIN_A RES_A CHAIN_B RES_B
+#     - CHAIN_C RES_C CHAIN_D RES_D
+#     - etc...
+#
+# where CHAIN_A = the chain ID of the first chain involved, RES_A = the residue ID of the first residue involved, etc.
+
+disulfide_bond_list:
+    - PROA 2 PROA 45
+
+###############
+#ACEMD OPTIONS#
+###############
+
+# Specify directory from which you want to run ACEMD (must already exist)
+work_dir: /path/to/acemd/work/directory
+
+# Specify ACEMD output name
+output: test
+
+# Set the number of steps each process will run for (float)
+minimization_num_steps: 50
+nvt_num_steps: 25000
+npt1_num_steps: 250000
+npt2_num_steps: 250000
+production_num_steps: 250000000
+
+# Set simulation temperature (Kelvin, float)
+temperature: 310
+
+# Set timestep and hydrogen mass scaling (if timestep = 2, hydrogenscale = 1; if timestep = 4, hydrogenscale = 4)
+timestep: 4
+hydrogenscale: 4
+
+# Set PME status (on/off)
+pme: on
+
+# Should theromstat and/or barostat be on during production run? (on/off)
+thermostat: on
+barostat: on
+
+# File update frequencies (number of steps, float)
+dcd_freq: 25000
+log_freq: 2500
+restart_freq: 250000

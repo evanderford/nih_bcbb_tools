@@ -7,6 +7,8 @@
 #
 # MUST edit md_pipeine.yaml config file
 
+module load chrome
+
 # Run CHARMM-GUI submission script
 python charmmgui_submitter.py
 
@@ -57,5 +59,6 @@ mkdir misc/
 mv cg_input.str misc/
 mv *.bak misc/
 mv charmm-gui.tgz misc/
+mv disulfide.tcl misc/
 
 echo "done"
