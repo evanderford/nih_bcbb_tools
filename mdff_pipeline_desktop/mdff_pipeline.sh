@@ -51,7 +51,8 @@ wait %1
 # Prepares MDFF input files for NAMD (includes solvation, creation of grid files, generation of restraints)
 vmd -dispdev text -e mdff_solvent_step2.tcl -args autopsf_formatted_autopsf.psf col_best_001.pdb $x $y $z
 
-# Submits NAMD MDFF files to Biowulf; 4 nodes (112 threads); walltime of 10 days
-#sbatch mdff_solvent_step3.sb
+# Adds water/ion parameter file to NAMD input files
+sed -i.bak '/par_all36_prot.prm/ a parameters \/home\/vanderfordek\/tools\/toppar_water_ions_namd.str' mdff_run-step1.namd
+sed -i.bak '/par_all36_prot.prm/ a parameters \/home\/vanderfordek\/tools\/toppar_water_ions_namd.str' mdff_run-step2.namd
 
 echo "done"
