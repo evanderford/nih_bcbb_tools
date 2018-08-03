@@ -7,6 +7,13 @@
 
 ## Instructions
 
+### Necessary software
+
+To run this pipeline locally, you must have the following software installed (and in your path):
+
+* VMD 1.9.3 (or later)
+* Situs 2.8 (or later)
+
 ### Preparation
 
 For this pipeline, you will need to be logged in to the NIH Biowulf HPC cluster.
@@ -21,17 +28,7 @@ You should now have the following files in your directory:
 * `mdff_solvent_step2.tcl`
 * `mdff_solvent_step3.sb`
 
-### Running an interactive job
-
-Next, you will need to start an interactive job on Biowulf. To do this, type
-
-    sinteractive
-
-into the command line. Wait for a few lines of text to indicate that you are up and running.
-
 ### Executing the MDFF pipeline script
-
-NOTE: Before you do this step, consider whether you want the MDFF job to be submitted automatically or if you want to do so manually. If you want to submit the job yourself (harder but more customizable), read on. If you want the HPC job to be submitted automatically, skip down to the "Submitting MDFF job on Biowulf automatically (option 2)" and follow the instructions there; after that, you'll come back up here and do this part.
 
 It is now time for you to run the pipeline. To do so, type
 
@@ -45,7 +42,7 @@ For example, if my crystal structure were 1abc.pdb, my cryo-EM map file were map
 
 ### Running the MDFF job
 
-Now you have all the necessary input files to run an MDFF job.
+Now you have all the necessary input files to run an MDFF job. These files are in a directory entitled `mdff_files/`
 
 If you want to run this on an HPC cluster, you'll need to copy the `mdff_files/` directory there. Then you can execute
 
@@ -61,7 +58,7 @@ If you want to run locally, make sure you have NAMD available then run
 After this is finished, run
 
     namd2 mdff_run-step2.namd > mdff_run-step2.log
-    
+
 ---
 
 ## Limitations/Hangups
