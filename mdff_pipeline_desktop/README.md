@@ -23,22 +23,21 @@ Download the files in this directory (folder), then place your desired input fil
 You should now have the following files in your directory:
 * `xxx.pdb`
 * `xxx.mrc`
-* `mdff_pipeline_biowulf.sh`
+* `mdff_pipeline.sh`
 * `mdff_solvent_step1.tcl`
 * `mdff_solvent_step2.tcl`
-* `mdff_solvent_step3.sb`
 
 ### Executing the MDFF pipeline script
 
 It is now time for you to run the pipeline. To do so, type
 
-    ./mdff_pipeline_biowulf.sh -i xxx.pdb -m xxx.mrc -r your_resolution_here
+    ./mdff_pipeline.sh -i xxx.pdb -m xxx.mrc -r your_resolution_here
 
 into the command line, where `xxx.pdb` and `xxx.mrc` are your input files, and your_resolution_here is the resolution of the cryo-EM map.
 
 For example, if my crystal structure were 1abc.pdb, my cryo-EM map file were map.mrc, and my resolution were 5.0 Å, I would type
 
-    ./mdff_pipeline_biowulf.sh -i 1abc.pdb -m map.mrc -r 5.0
+    ./mdff_pipeline.sh -i 1abc.pdb -m map.mrc -r 5.0
 
 ### Running the MDFF job
 
