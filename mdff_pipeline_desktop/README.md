@@ -16,8 +16,6 @@ To run this pipeline locally, you must have the following software installed (an
 
 ### Preparation
 
-For this pipeline, you will need to be logged in to the NIH Biowulf HPC cluster.
-
 Download the files in this directory (folder), then place your desired input files (`xxx.pdb` and `xxx.mrc`) in the same directory.
 
 You should now have the following files in your directory:
