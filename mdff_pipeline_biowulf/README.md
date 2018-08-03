@@ -2,8 +2,8 @@
 
 ## Input files
 
-`xxx.pdb`, the protein structure you want to use
-`xxx.mrc`, the cryo-EM map (in .mrc format) that you want to use
+* `xxx.pdb`, the protein structure you want to use
+* `xxx.mrc`, the cryo-EM map (in .mrc format) that you want to use
 
 ## Instructions
 
