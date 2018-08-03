@@ -1,10 +1,9 @@
+#!/bin/bash
 # Author: Elliott Vanderford
 # Submits NAMD MDFF files to Biowulf; 4 nodes (112 threads); walltime of 10 days
 #
 # Usage: sbatch mdff_solvent_step3.sb
 
-
-#!/bin/bash
 #SBATCH --output=output.txt
 #SBATCH --partition=multinode
 #SBATCH --ntasks=112
