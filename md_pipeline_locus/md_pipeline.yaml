@@ -73,6 +73,9 @@ disulfide_bonds: off
 disulfide_bond_list:
     - PROA 2 PROA 45
 
+# Specify how long you want to wait on the CHARMM-GUI server during the time-intensive step (in seconds). Default is 10 min:
+charmm_gui_wait: 600
+
 ###############
 #ACEMD OPTIONS#
 ###############

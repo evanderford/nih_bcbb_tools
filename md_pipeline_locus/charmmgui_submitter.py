@@ -176,7 +176,11 @@ def next4():
 
 # Click next
 def next5():
-    time.sleep(600)
+    if 'charmm_gui_wait' in dict:
+        charmm_gui_wait = dict.get('charmm_gui_wait')
+    else:
+        charmm_gui_wait = 600
+    time.sleep(charmm_gui_wait)
     next5 = driver.find_element_by_class_name('nav_entry')
     next5.click()
 
