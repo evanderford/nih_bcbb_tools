@@ -56,6 +56,25 @@ After this is finished, run
 
     namd2 mdff_run-step2.namd > mdff_run-step2.log
 
+### After MDFF run has completed
+
+Once your HPC job is complete, you'll have a lot of files to sift through. The important ones are:
+
+* `ionized.psf`
+* `ionized.pdb`
+* `mdff_run-step1.dcd`
+* `mdff_run-step2.dcd`
+
+The "ionized" files are your starting configurations, and the `.dcd` files are the trajectories that MDFF produced.
+
+To view your trajectory, it's probably best to download these files to a local machine. Then, using VMD, you can execute
+
+	vmd -f ionized.psf ionized.pdb mdff_run-step1.dcd mdff_run-step2.dcd
+
+in the command line.
+
+Note: turning solvent molecules off makes visualization 100x easier.
+
 ---
 
 ## Limitations/Hangups
