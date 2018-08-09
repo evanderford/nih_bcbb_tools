@@ -1,7 +1,7 @@
 # Author: Elliott Vanderford
 # Runs Charmm-GUI from an automated script
 # Software requirements: Google Chrome (v 63 or above), chromedriver, python (2.7+ or 3.6+), selenium
-# Future updates: Make operational on cluster, make headless mode operational, implement explicit wait for solvation step.
+# Future updates: implement explicit wait for solvation step.
 
 import os
 import time
