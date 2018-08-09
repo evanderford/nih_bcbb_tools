@@ -30,13 +30,13 @@ Lastly, you'll need [chromedriver](https://sites.google.com/a/chromium.org/chrom
 
 All the files in this package:
 
-* acemd_input_editor.py
-* acemd_input_generator.sh
-* charmmgui_submitter.py
-* md_pipeline.sh
-* md_pipeline.yaml
-* par_all36_prot.prm
-* toppar_water_ions_namd.str
+* `acemd_input_editor.py`
+* `acemd_input_generator.sh`
+* `charmmgui_submitter.py`
+* `md_pipeline.sh`
+* `md_pipeline.yaml`
+* `par_all36_prot.prm`
+* `toppar_water_ions_namd.str`
 
 must be located in the directory in which you plan to run `./md_pipeline.sh`
 
